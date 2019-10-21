@@ -1,0 +1,45 @@
+.vanilla-autocomplete-suggestions::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.vanilla-autocomplete-suggestions::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 20px;
+}
+.vanilla-autocomplete-suggestions::-webkit-scrollbar-track {
+    background: #fff;
+}
+.vanilla-autocomplete-suggestions::-webkit-scrollbar {
+    width: 5px;
+    border-radius: 20px;
+}
+
+.vanilla-autocomplete-suggestions {
+    text-align: left;
+    cursor: default;
+    border-top: 0;
+    background: #fff;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    position: absolute;
+    display: none;
+    z-index: 9999;
+    max-height: 254px;
+    overflow: hidden;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.vanilla-autocomplete-suggestion {
+    position: relative;
+    padding: 14px 16px;
+    line-height: 22px;
+/*     white-space: nowrap; */
+/*     text-overflow: ellipsis; */
+    overflow: hidden;
+    font-size: 16px;
+    color: #333;
+}
+
+.vanilla-autocomplete-suggestion.selected {
+    background: rgba(0, 0, 0, 0.08);
+}
