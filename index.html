@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Vanilla AutoComplete</title>
+        <meta name="description" content="A simple AutoComplete in JS Vanilla">
+        <meta name="author" content="https://github.com/marssola/vanilla-autocomplete">
+
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="src/css/vanilla-autocomplete.css">
+        <script src="src/js/vanilla-autocomplete.js"></script>
+    </head>
+    <body>
+        <div class="content">
+            <h2>VanillaAutoComplete</h2>
+            <p>It's a simple AutoComplete in JS Vanilla</p>
+            <div class="area-input">
+                <input type="search" id="myAutoComplete" placeholder="Search distribution" />
+            </div>
+            
+            <h3>Options</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Property</th>
+                        <th>Default/Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>selector</td>
+                        <td>string or object selector</td>
+                        <td>Required selector for construct Calendar</td>
+                    </tr>
+                    <tr>
+                        <td>onSelect</td>
+                        <td><pre>Callback function</pre></td>
+                        <td>
+                            A  callback function to capture the date selected<br/>
+                            <ul>
+                                <li><span class="inline-code">'data'<span> is result contained in the selected date</li>
+                                <li><span class="inline-code">'element'<span> is the element clicked</li>
+                                <li><span class="inline-code">'event'<span> is the event triggered</li>
+                            </ul>
+                            e.g:
+<pre>
+onSelect((data, element, event) => {
+    
+})
+</pre>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <script>
+                let suggestions = [
+                    'Ubuntu',
+                    'Kubuntu',
+                    'Xubuntu',
+                    'KDE Neon',
+                    'openSUSE Tumbleweed',
+                    'Debian',
+                    'Arch Linux',
+                    'Slackware',
+                    'Gentoo',
+                    'Mageia',
+                ]
+                new VanillaAutoComplete({
+                    selector: document.querySelector("#myAutoComplete"),
+                    source: (typed, suggest) => {
+                        suggest(suggestions.filter(f => f.toLowerCase().match(new RegExp(typed))).sort())
+                    },
+                    onSelect: (data, item, event) => {
+                        console.log(data, item, event)
+                    }
+                })
+            </script>
+        </div>
+    </body>
+</html>
